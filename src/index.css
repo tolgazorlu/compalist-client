@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.quill {
+  @apply border rounded-lg border-gray-300 bg-white
+}
+
+.ql-toolbar {
+  @apply flex justify-center !border-none
+}
+
+.ql-container {
+  @apply !border-none
+}
+
+.ql-editor {
+  @apply min-h-48 }
