@@ -28,6 +28,14 @@ const initialFormData: CompanyType = {
   isVerified: false,
   createdAt: "",
   ratings: [],
+  social_instagram_link: "",
+  social_linkedin_link: "",
+  social_twitter_link: "",
+  social_facebook_link: "",
+  social_youtube_link: "",
+  big_partners: 0,
+  medium_partners: 0,
+  website_visits: 0,
 };
 
 interface CategoryOption {
