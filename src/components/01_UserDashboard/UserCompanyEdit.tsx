@@ -28,6 +28,14 @@ const initialFormData: CompanyType = {
   isListed: false,
   createdAt: "",
   ratings: [],
+  website_visits: 0,
+  social_instagram_link: "",
+  social_linkedin_link: "",
+  social_twitter_link: "",
+  social_facebook_link: "",
+  social_youtube_link: "",
+  big_partners: 0,
+  medium_partners: 0,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -73,6 +81,14 @@ const UserCompany = () => {
         isListed: company.isListed,
         createdAt: company.createdAt,
         ratings: company.ratings,
+        website_visits: company.website_visits,
+        social_instagram_link: company.social_instagram_link,
+        social_linkedin_link: company.social_linkedin_link,
+        social_twitter_link: company.social_twitter_link,
+        social_facebook_link: company.social_facebook_link,
+        social_youtube_link: company.social_youtube_link,
+        medium_partners: company.medium_partners,
+        big_partners: company.big_partners,
       });
       setImage(company.logo);
       setCompName(company.company_name);
@@ -135,7 +151,7 @@ const UserCompany = () => {
   if (company)
     return (
       <div className="bg-neutral-50">
-        <form className="max-w-7xl mx-auto pb-10 px-4 grid grid-cols-3 gap-2">
+        <form className="max-w-7xl mx-auto pb-10 px-4 py-4 grid grid-cols-3 gap-2">
           {/* PROFILE INFO START */}
           <div className="shadow-sm bg-white border rounded-lg col-span-3 md:col-span-2  flex flex-col">
             <span className="text-lg text-gray-700 font-semibold divide-y-2 px-4 py-3">
@@ -164,8 +180,7 @@ const UserCompany = () => {
                       className="block w-1/3 bg-blue-500 text-white border border-black-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                 file:bg-blue-600 file:border-0 file:text-white
                 file:me-4
-                file:py-3 file:px-4
-               "
+                file:py-3 file:px-4"
                     />
                     <button
                       onClick={uploadImageHandler}
@@ -347,7 +362,88 @@ const UserCompany = () => {
                     <option value="100000-1000000">100000-1000000 $</option>
                   </select>
                 </div>
-                <div className="w-full col-span-2">
+                <div className="w-full">
+                  <label
+                    htmlFor="social_linkedin_link"
+                    className="block text-sm text-neutral-500 font-medium mb-2"
+                  >
+                    Linkedin Adresi
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.social_linkedin_link}
+                    name="social_linkedin_link"
+                    onChange={handleChange}
+                    id="social_linkedin_link"
+                    className="py-3 px-4 block w-full border rounded-lg text-sm"
+                  />
+                </div>
+                <div className="w-full">
+                  <label
+                    htmlFor="social_instagram_link"
+                    className="block text-sm text-neutral-500 font-medium mb-2"
+                  >
+                    İnstagram Adresi
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.social_instagram_link}
+                    name="social_instagram_link"
+                    onChange={handleChange}
+                    id="social_instagram_link"
+                    className="py-3 px-4 block w-full border rounded-lg text-sm"
+                  />
+                </div>
+                <div className="w-full">
+                  <label
+                    htmlFor="social_twitter_link"
+                    className="block text-sm text-neutral-500 font-medium mb-2"
+                  >
+                    Twitter Adresi
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.social_twitter_link}
+                    name="social_twitter_link"
+                    onChange={handleChange}
+                    id="social_twitter_link"
+                    className="py-3 px-4 block w-full border rounded-lg text-sm"
+                  />
+                </div>
+                <div className="w-full">
+                  <label
+                    htmlFor="social_facebook_link"
+                    className="block text-sm text-neutral-500 font-medium mb-2"
+                  >
+                    Facebook Adresi
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.social_facebook_link}
+                    name="social_facebook_link"
+                    onChange={handleChange}
+                    id="social_facebook_link"
+                    className="py-3 px-4 block w-full border rounded-lg text-sm"
+                  />
+                </div>
+                <div className="w-full">
+                  <label
+                    htmlFor="social_youtube_link"
+                    className="block text-sm text-neutral-500 font-medium mb-2"
+                  >
+                    Youtube Adresi
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.social_youtube_link}
+                    name="social_youtube_link"
+                    onChange={handleChange}
+                    id="social_youtube_link"
+                    className="py-3 px-4 block w-full border rounded-lg text-sm"
+                  />
+                </div>
+
+                <div className="w-full">
                   <label
                     htmlFor="employee_count"
                     className="block text-sm text-neutral-500 font-medium mb-2"
@@ -368,7 +464,7 @@ const UserCompany = () => {
                     htmlFor="customer_count"
                     className="block text-sm text-neutral-500 font-medium mb-2"
                   >
-                    Müşteri Sayısı
+                    Referans Sayısı
                   </label>
                   <input
                     type="text"
@@ -376,6 +472,24 @@ const UserCompany = () => {
                     name="numbers_of_customers"
                     onChange={handleChange}
                     id="numbers_of_customers"
+                    className="py-3 px-4 block w-full border rounded-lg text-sm"
+                  />
+                </div>
+                <div className="w-full col-span-2">
+                  <label
+                    htmlFor="customer_count"
+                    className="block text-sm text-neutral-500 font-medium mb-2"
+                  >
+                    Büyük Ölçekli İşletme Oranı
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={formData.big_partners}
+                    name="big_partners"
+                    onChange={handleChange}
+                    id="big_partners"
                     className="py-3 px-4 block w-full border rounded-lg text-sm"
                   />
                 </div>

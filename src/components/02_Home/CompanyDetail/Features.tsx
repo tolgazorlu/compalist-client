@@ -11,7 +11,7 @@ const Features: React.FC<CompanyItemProps> = ({ item }) => {
       {/* Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 py-6 max-w-7xl mx-auto">
         {/* Card */}
-        <div className="flex flex-col bg-gradient-to-tl from-white via-white to-neutral-50 border shadow-sm rounded-xl">
+        <div className="flex flex-col bg-gradient-to-tl from-neutral-50 via-white to-neutral-50 border shadow-sm rounded-xl">
           <div className="p-4 md:p-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +33,15 @@ const Features: React.FC<CompanyItemProps> = ({ item }) => {
               </p>
             </div>
             <div className="flex items-center gap-x-2">
-              <h3 className="text-xl sm:text-2xl font-bold">%60</h3>
+              <h3 className="text-xl sm:text-2xl font-bold">
+                %{item.big_partners}
+              </h3>
             </div>
           </div>
         </div>
         {/* End Card */}
         {/* Card */}
-        <div className="flex flex-col bg-gradient-to-tl from-white via-white to-neutral-50 border shadow-sm rounded-xl">
+        <div className="flex flex-col bg-gradient-to-tl from-neutral-50 via-white to-neutral-50 border shadow-sm rounded-xl">
           <div className="p-4 md:p-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,17 +59,19 @@ const Features: React.FC<CompanyItemProps> = ({ item }) => {
             </svg>
             <div className="flex items-center gap-x-2">
               <p className="text-sm uppercase tracking-wide text-neutral-500">
-                Orta Ölçekli İşletmeler
+                Diğer İşletmeler
               </p>
             </div>
             <div className="flex items-center gap-x-2">
-              <h3 className="text-xl sm:text-2xl font-bold">%40</h3>
+              <h3 className="text-xl sm:text-2xl font-bold">
+                %{100 - item.big_partners}
+              </h3>
             </div>
           </div>
         </div>
         {/* End Card */}
         {/* Card */}
-        <div className="flex flex-col bg-gradient-to-tl from-white via-white to-neutral-50 border shadow-sm rounded-xl">
+        <div className="flex flex-col bg-gradient-to-tl from-neutral-50 via-white to-neutral-50 border shadow-sm rounded-xl">
           <div className="p-4 md:p-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,16 +91,31 @@ const Features: React.FC<CompanyItemProps> = ({ item }) => {
                 Referans Sayısı
               </p>
             </div>
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center">
               <h3 className="text-xl sm:text-2xl font-bold">
                 {item.numbers_of_customers}
               </h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-plus"
+              >
+                <path d="M5 12h14" />
+                <path d="M12 5v14" />
+              </svg>
             </div>
           </div>
         </div>
         {/* End Card */}
         {/* Card */}
-        <div className="flex flex-col bg-gradient-to-tl from-white via-white to-neutral-50 border shadow-sm rounded-xl">
+        <div className="flex flex-col bg-gradient-to-tl from-neutral-50 via-white to-neutral-50 border shadow-sm rounded-xl">
           <div className="p-4 md:p-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"

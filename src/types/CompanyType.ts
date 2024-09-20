@@ -20,4 +20,11 @@ export type CompanyType = {
   createdAt: string;
   ratings: RatingType[];
   website_visits: number;
+  social_instagram_link: string;
+  social_linkedin_link: string;
+  social_twitter_link: string;
+  social_facebook_link: string;
+  social_youtube_link: string;
+  big_partners: number;
+  medium_partners: number;
 };

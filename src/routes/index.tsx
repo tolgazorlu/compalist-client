@@ -30,6 +30,7 @@ import UserPage from "../pages/Admin/UserPage";
 import CompanyPage from "../pages/Admin/CompanyPage";
 import UserVerifyEmail from "../pages/User/UserVerifyEmail";
 import EditBlogPage from "../pages/Admin/EditBlogPage";
+import UserCompanyProfile from "../pages/User/UserCompanyProfile";
 
 export const routes = createBrowserRouter([
   {
@@ -166,6 +167,10 @@ export const routes = createBrowserRouter([
       {
         path: "rating",
         element: <UserRating />,
+      },
+      {
+        path: "company/profile",
+        element: <UserCompanyProfile />,
       },
     ],
   },

@@ -14,7 +14,7 @@ const Header = () => {
               <Link
                 className={`${
                   location.pathname == "/user/dashboard"
-                    ? "text-gray-900 font-bold"
+                    ? "text-gray-900 font-bold underline"
                     : "text-gray-800"
                 } inline-flex items-center gap-x-2 hover:text-gray-500`}
                 to="/user/dashboard"
@@ -28,7 +28,7 @@ const Header = () => {
               <Link
                 className={`${
                   location.pathname == "/user/be-listed"
-                    ? "text-gray-900 font-bold"
+                    ? "text-gray-900 font-bold underline"
                     : "text-gray-800"
                 } inline-flex items-center gap-x-2 hover:text-gray-500`}
                 to="/user/be-listed"
@@ -40,7 +40,7 @@ const Header = () => {
               <Link
                 className={`${
                   location.pathname == "/user/get-suggest"
-                    ? "text-gray-900 font-bold"
+                    ? "text-gray-900 font-bold underline"
                     : "text-gray-800"
                 } inline-flex items-center gap-x-2 hover:text-gray-500`}
                 to="/user/get-suggest"
@@ -52,12 +52,24 @@ const Header = () => {
               <Link
                 className={`${
                   location.pathname == "/user/rating"
-                    ? "text-gray-900 font-bold"
+                    ? "text-gray-900 font-bold underline"
                     : "text-gray-800"
                 } inline-flex items-center gap-x-2 hover:text-gray-500`}
                 to="/user/rating"
               >
                 Değerlendir
+              </Link>
+            </div>
+            <div className="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
+              <Link
+                className={`${
+                  location.pathname == "/user/company/profile"
+                    ? "text-gray-900 font-bold underline"
+                    : "text-gray-800"
+                } inline-flex items-center gap-x-2 hover:text-gray-500`}
+                to="/user/company/profile"
+              >
+                Şirket Profili
               </Link>
             </div>
           </div>
