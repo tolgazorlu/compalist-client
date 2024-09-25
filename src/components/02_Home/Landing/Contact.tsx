@@ -16,6 +16,8 @@ const Contact = () => {
   const { mutateAsync: contact } = useContactMutation();
 
   const [formData, setFormData] = useState<ContactType>(initialFormData);
+  const [isKVKKReaded, setIsKVKKReaded] = useState(false);
+  const [isPolicyReaded, setIsPolicyReaded] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,8 +32,12 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      await contact(formData);
-      toast.success("İletişim formu başarıyla gönderildi!");
+      if (!isKVKKReaded || !isPolicyReaded) {
+        toast.error("Sözleşmeleri kabul etmeniz gerekmektedir.");
+      } else {
+        await contact(formData);
+        toast.success("İletişim formu başarıyla gönderildi!");
+      }
     } catch (error) {
       toast.error("Bir hata oluştu!");
     }
@@ -158,16 +164,43 @@ const Contact = () => {
                 <div className="flex mt-2">
                   <input
                     type="checkbox"
-                    className="shrink-0 mt-0.5 border-gray-200 rounded text-primary focus:ring-primary"
-                    id="hs-default-checkbox"
+                    onChange={() => setIsKVKKReaded(!isKVKKReaded)}
+                    className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                   />
-                  <label
-                    htmlFor="hs-default-checkbox"
-                    className="text-sm text-gray-500 ms-3"
-                  >
-                    Kvkk metnini okudum onaylıyorum
-                  </label>
+                  <span className="mt-0.5">
+                    <a
+                      className="text-sm ms-2 hover:underline text-blue-500 cursor-pointer"
+                      href="/policy/kvkk"
+                    >
+                      KVKK Metni'ni{" "}
+                    </a>
+                    <span className="text-sm ms-1">okudum ve onaylıyorum.</span>
+                  </span>
                 </div>
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    onChange={() => setIsPolicyReaded(!isPolicyReaded)}
+                    className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                  />
+                  <span className="-mt-1">
+                    <a
+                      className="text-sm ms-2 hover:underline text-blue-500 cursor-pointer"
+                      href="/policy/user"
+                    >
+                      Üyelik Sözleşmesi'ni{" "}
+                    </a>
+                    <span className="text-sm">ve</span>
+                    <a
+                      className="text-sm ms-1 hover:underline text-blue-500 cursor-pointer"
+                      href="/policy/privacy"
+                    >
+                      Gizlilik Politikası'nı{" "}
+                    </a>
+                    <span className="text-sm">okudum ve onaylıyorum.</span>
+                  </span>
+                </div>
+
                 <div className="mt-4 grid">
                   <button
                     type="submit"

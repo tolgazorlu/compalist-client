@@ -32,7 +32,7 @@ const Search = () => {
   return (
     <>
       {/* Hero */}
-      <div className="relative bg-blue-50">
+      <div className="relative bg-neutral-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
           <div className="text-center">
             {/* Title */}

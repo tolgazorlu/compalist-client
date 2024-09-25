@@ -31,6 +31,9 @@ import CompanyPage from "../pages/Admin/CompanyPage";
 import UserVerifyEmail from "../pages/User/UserVerifyEmail";
 import EditBlogPage from "../pages/Admin/EditBlogPage";
 import UserCompanyProfile from "../pages/User/UserCompanyProfile";
+import User from "../components/02_Home/Policies/User";
+import Kvkk from "../components/02_Home/Policies/KVKK";
+import Privacy from "../components/02_Home/Policies/Privacy";
 
 export const routes = createBrowserRouter([
   {
@@ -88,6 +91,23 @@ export const routes = createBrowserRouter([
       {
         path: "/:id/verify/:token",
         element: <UserVerifyEmail />,
+      },
+    ],
+  },
+  {
+    path: "/policy",
+    children: [
+      {
+        path: "user",
+        element: <User />,
+      },
+      {
+        path: "kvkk",
+        element: <Kvkk />,
+      },
+      {
+        path: "privacy",
+        element: <Privacy />,
       },
     ],
   },

@@ -396,36 +396,6 @@ export default function RatingForm() {
 
               {/* End Grid */}
 
-              {/* Checkbox */}
-
-              <div className="mt-3 flex">
-                <div className="flex">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="shrink-0 mt-1.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500"
-                  />
-                </div>
-
-                <div className="ms-3">
-                  <label
-                    htmlFor="remember-me"
-                    className="text-sm text-gray-600"
-                  >
-                    KVKK metnini okudum, onaylıyorum{" "}
-                    <a
-                      className="text-blue-600 decoration-2 hover:underline font-medium"
-                      href="#"
-                    >
-                      Gizlilik Politikası
-                    </a>
-                  </label>
-                </div>
-              </div>
-
-              {/* End Checkbox */}
-
               <div className="mt-6 grid">
                 <button
                   onClick={handleSubmit}

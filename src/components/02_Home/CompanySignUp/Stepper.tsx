@@ -11,6 +11,9 @@ export const Stepper = () => {
   const [password, setPassword] = useState<string>("");
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
 
+  const [isKVKKReaded, setIsKVKKReaded] = useState(false);
+  const [isPolicyReaded, setIsPolicyReaded] = useState(false);
+
   const { mutateAsync: signup } = useSignupMutation();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -18,17 +21,23 @@ export const Stepper = () => {
 
     if (password == passwordConfirm) {
       try {
-        await signup({
-          name: name,
-          surname: surname,
-          email: email,
-          phone: phone,
-          password: password,
-          passwordConfirm: passwordConfirm,
-        });
-        toast.success(
-          "Kayıt başarılı! Lütfen e-posta adresinizi kontrol edin."
-        );
+        if (!isKVKKReaded || !isPolicyReaded) {
+          toast.error(
+            "Kayıt olmadan önce kullanıcı sözleşmelerini okuyunuz ve onaylayınız!"
+          );
+        } else {
+          await signup({
+            name: name,
+            surname: surname,
+            email: email,
+            phone: phone,
+            password: password,
+            passwordConfirm: passwordConfirm,
+          });
+          toast.success(
+            "Kayıt başarılı! Lütfen e-posta adresinizi kontrol edin."
+          );
+        }
       } catch (error: any) {
         toast.error(error.response.data.message);
       }
@@ -560,9 +569,7 @@ export const Stepper = () => {
             </div>
             {/* End First Contnet */}
             <div
-              data-hs-stepper-content-item='{
-  "index": 3
-}'
+              data-hs-stepper-content-item='{"index": 3}'
               style={{ display: "none" }}
             >
               <div>
@@ -613,14 +620,43 @@ export const Stepper = () => {
                   <div className="flex mt-2">
                     <input
                       type="checkbox"
+                      onChange={() => setIsKVKKReaded(!isKVKKReaded)}
                       className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                     />
-                    <a
-                      className="text-sm ms-3 hover:underline text-blue-500"
-                      href="#"
-                    >
-                      KVKK Metnini Okudum.
-                    </a>
+                    <span className="mt-0.5">
+                      <a
+                        className="text-sm ms-2 hover:underline text-blue-500 cursor-pointer"
+                        href="/policy/kvkk"
+                      >
+                        KVKK Metni'ni{" "}
+                      </a>
+                      <span className="text-sm ms-1">
+                        okudum ve onaylıyorum.
+                      </span>
+                    </span>
+                  </div>
+                  <div className="flex -mt-2">
+                    <input
+                      type="checkbox"
+                      onChange={() => setIsPolicyReaded(!isPolicyReaded)}
+                      className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                    />
+                    <span className="mt-0.5">
+                      <a
+                        className="text-sm ms-2 hover:underline text-blue-500 cursor-pointer"
+                        href="/policy/user"
+                      >
+                        Üyelik Sözleşmesi'ni{" "}
+                      </a>
+                      <span className="text-sm">ve</span>
+                      <a
+                        className="text-sm ms-1 hover:underline text-blue-500 cursor-pointer"
+                        href="/policy/privacy"
+                      >
+                        Gizlilik Politikası'nı{" "}
+                      </a>
+                      <span className="text-sm">okudum ve onaylıyorum.</span>
+                    </span>
                   </div>
                 </form>
                 {/* End Form */}

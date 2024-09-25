@@ -1,20 +1,20 @@
 import axios from "axios";
 
-// const apiClient = axios.create({
-//   baseURL:
-//     process.env.NODE_ENV === "development" ? "http://localhost:8000" : "/",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
-
 const apiClient = axios.create({
   baseURL:
-    process.env.NODE_ENV === "development" ? "https://www.compalist.app" : "/",
+    process.env.NODE_ENV === "development" ? "http://localhost:8000" : "/",
   headers: {
     "Content-Type": "application/json",
   },
 });
+
+// const apiClient = axios.create({
+//   baseURL:
+//     process.env.NODE_ENV === "production" ? "https://www.compalist.app" : "/",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// });
 
 apiClient.interceptors.request.use(
   async (config) => {

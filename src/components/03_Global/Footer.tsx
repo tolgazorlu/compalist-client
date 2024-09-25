@@ -67,7 +67,6 @@ const Footer = () => {
                 <Link
                   className="inline-flex gap-x-2 text-gray-300 hover:text-orange-500"
                   to="/why-us"
-                  
                 >
                   Neden Biz?
                 </Link>
@@ -166,23 +165,31 @@ const Footer = () => {
           {/* End Col */}
           <div>
             <h4 className="text-xs font-semibold text-gray-100 uppercase">
-              Sağlayıcılar İçin
+              Sözleşmeler
             </h4>
             <div className="mt-3 grid space-y-3 text-sm">
               <p>
                 <a
                   className="inline-flex gap-x-2 text-gray-300 hover:text-orange-500"
-                  href="be-listed"
+                  href="/policy/user"
                 >
-                  Listelen
+                  Üyelik Sözleşmesi
                 </a>
               </p>
               <p>
                 <a
                   className="inline-flex gap-x-2 text-gray-300 hover:text-orange-500"
-                  href="#"
+                  href="/policy/privacy"
                 >
-                  Neden Listelen?
+                  Gizlilik Politikası
+                </a>
+              </p>
+              <p>
+                <a
+                  className="inline-flex gap-x-2 text-gray-300 hover:text-orange-500"
+                  href="/policy/kvkk"
+                >
+                  KVKK Aydınlatma Metni
                 </a>
               </p>
             </div>
@@ -196,13 +203,13 @@ const Footer = () => {
               <div className="space-x-4 text-sm ">
                 <a
                   className="inline-flex gap-x-2 text-gray-300 hover:text-orange-500"
-                  href="#"
+                  href="/policy/user"
                 >
                   Şartlar
                 </a>
                 <a
                   className="inline-flex gap-x-2 text-gray-300 hover:text-orange-500"
-                  href="#"
+                  href="/policy/privacy"
                 >
                   Gizlilik
                 </a>
