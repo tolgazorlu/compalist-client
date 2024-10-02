@@ -32,7 +32,7 @@ const Search = () => {
   return (
     <>
       {/* Hero */}
-      <div className="relative bg-neutral-100">
+      <div className="relative bg-gradient-to-b from-white via-gray-300 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
           <div className="text-center">
             {/* Title */}
@@ -60,7 +60,7 @@ const Search = () => {
               {/* Form */}
               <form onSubmit={submitHandler}>
                 <div
-                  className="relative flex space-x-3 p-3 bg-white border rounded-lg shadow"
+                  className="relative flex space-x-3 p-3 bg-white border rounded-lg shadow z-20"
                   id="safe-area"
                 >
                   <div className="flex-[1_0_0%]">
@@ -121,9 +121,9 @@ const Search = () => {
               {/* End Form */}
 
               {/* SVG Element */}
-              <div className="hidden md:block absolute top-0 end-0 -translate-y-12 translate-x-20 -z-10">
+              <div className="hidden md:block absolute top-0 end-0 -translate-y-12 translate-x-20 z-10">
                 <svg
-                  className="w-16 h-auto text-secondary"
+                  className="w-16 h-auto text-primary"
                   width={121}
                   height={135}
                   viewBox="0 0 121 135"
@@ -152,9 +152,9 @@ const Search = () => {
               </div>
               {/* End SVG Element */}
               {/* SVG Element */}
-              <div className="hidden md:block absolute bottom-0 start-0 translate-y-10 -translate-x-32 -z-10">
+              <div className="hidden md:block absolute bottom-0 start-0 translate-y-10 -translate-x-32 z-10">
                 <svg
-                  className="w-40 h-auto text-secondary"
+                  className="w-40 h-auto text-primary"
                   width={347}
                   height={188}
                   viewBox="0 0 347 188"
